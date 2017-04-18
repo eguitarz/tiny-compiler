@@ -1,0 +1,27 @@
+{{outlet}}
+
+<div>input: {{code}}</div>
+<button onclick={{action 'tokenize' code}}>tokenize</button>
+
+{{#if tokens}}
+  <div>
+    tokens: {{stringify tokens}}
+  </div>
+  <button onclick={{action 'parse' tokens}}>parse</button>
+{{/if}}
+
+{{#if ast}}
+  <div>ast: {{stringify ast}}</div>
+  <button onclick={{action 'transform' ast}}>transform</button>
+{{/if}}
+
+{{#if newAst}}
+  <div>newAst: {{stringify newAst}}</div>
+  <button onclick={{action 'generate' newAst}}>generate</button>
+{{/if}}
+
+{{#if output}}
+  <h1>{{output}}</h1>
+  <button onclick={{action (mut output) null}}>clear</button>
+{{/if}}
+<button onclick={{action 'compile' code}}>compile</button>
